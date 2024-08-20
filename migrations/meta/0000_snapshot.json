@@ -1,7 +1,7 @@
 {
-  "version": "5",
+  "version": "6",
   "dialect": "sqlite",
-  "id": "3beb494c-5d3c-437c-a049-a488484a486c",
+  "id": "f725e26c-0353-42f7-b728-f31f5183eec4",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "colors": {
@@ -12,7 +12,7 @@
           "type": "integer",
           "primaryKey": true,
           "notNull": true,
-          "autoincrement": false
+          "autoincrement": true
         },
         "name": {
           "name": "name",
@@ -42,7 +42,7 @@
           "type": "integer",
           "primaryKey": true,
           "notNull": true,
-          "autoincrement": false
+          "autoincrement": true
         },
         "name": {
           "name": "name",
@@ -121,56 +121,56 @@
           "name": "weightGrams",
           "type": "real",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
         "colorId": {
           "name": "colorId",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
         "manufacturerId": {
           "name": "manufacturerId",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
         "model": {
           "name": "model",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
         "content": {
           "name": "content",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
         "fiberQuantity": {
           "name": "fiberQuantity",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
         "metersPer100gPer1Fiber": {
           "name": "metersPer100gPer1Fiber",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
         "metersPer100gPerAllFibers": {
           "name": "metersPer100gPerAllFibers",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         }
       },
@@ -220,6 +220,43 @@
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
+    },
+    "users": {
+      "name": "users",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "password": {
+          "name": "password",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
     }
   },
   "enums": {},
@@ -227,5 +264,8 @@
     "schemas": {},
     "tables": {},
     "columns": {}
+  },
+  "internal": {
+    "indexes": {}
   }
 }
