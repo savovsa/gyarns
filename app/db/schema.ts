@@ -47,19 +47,19 @@ export const products = sqliteTable(
 
     quantity: real('quantity').notNull(),
     quantityUnitType: text('quantityUnitType').notNull(),
-    weightGrams: real('weightGrams').notNull(),
+    weightGrams: real('weightGrams'),
 
     colorId: integer('colorId')
-      .notNull()
+      
       .references(() => colors.id),
     manufacturerId: integer('manufacturerId')
-      .notNull()
+      
       .references(() => manufacturers.id),
-    model: text('model').notNull(),
-    content: text('content').notNull(),
-    numFibers: integer('fiberQuantity').notNull(),
-    metersPer100gPer1Fiber: integer('metersPer100gPer1Fiber').notNull(),
-    metersPer100gPerAllFibers: integer('metersPer100gPerAllFibers').notNull(),
+    model: text('model'),
+    content: text('content'),
+    numFibers: integer('fiberQuantity'),
+    metersPer100gPer1Fiber: integer('metersPer100gPer1Fiber'),
+    metersPer100gPerAllFibers: integer('metersPer100gPerAllFibers'),
   },
   (table) => ({
     slugIndex: uniqueIndex('slugIndex').on(table.slug),
