@@ -16,6 +16,7 @@ declare module '@remix-run/cloudflare' {
   interface AppLoadContext {
     cloudflare: Cloudflare
     db: DatabaseClient
+    ai: Env['AI']
     service: Services
   }
 }
@@ -26,5 +27,5 @@ export async function getLoadContext({
   const db = createDbClient(context.cloudflare.env.DB)
   const service = createServices({ db })
 
-  return { ...context, db, service }
+  return { ...context, db, service, ai: context.cloudflare.env.AI }
 }
