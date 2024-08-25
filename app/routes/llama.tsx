@@ -6,8 +6,12 @@ export const action: ActionFunction = async ({ context, request }) => {
   const formData = await request.formData()
   const prompt = formData.get('prompt') as string
 
+  let instructions =
+    '\n Interpret the color as if you are a color expert that can translate colors from hex to text. Be terse, provide only the color name. \n'
+
   const response = await context.ai.run('@cf/meta/llama-3.1-8b-instruct', {
-    prompt,
+    prompt: prompt + instructions,
+    max_tokens: 30,
   })
 
   return json(response)
@@ -27,11 +31,7 @@ export default function LlamaRoute() {
 
         <button type="submit">Ask</button>
 
-        {transition.state === 'submitting' ? (
-          <p>Waiting for response...</p>
-        ) : (
-          <p>{data?.response || 'No response yet'}</p>
-        )}
+        <p>{data?.response || 'No response yet'}</p>
       </Form>
     </div>
   )

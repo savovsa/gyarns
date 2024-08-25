@@ -1,5 +1,6 @@
 import { json, type LoaderFunctionArgs } from '@remix-run/cloudflare'
 import { useLoaderData } from '@remix-run/react'
+import { ColorBadge } from '../components/ColorBadge'
 
 export async function loader({ context, params }: LoaderFunctionArgs) {
   if (!params.slug) {
@@ -20,6 +21,7 @@ export default function Products() {
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
       <h1>{data.name}</h1>
+      <ColorBadge color={'#c96f1a'} name={'Autumn Maple'} />
       <p>${data.price}</p>
     </div>
   )

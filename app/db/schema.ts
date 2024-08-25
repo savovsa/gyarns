@@ -21,7 +21,10 @@ export type UserInsert = typeof users.$inferInsert
 export const colors = sqliteTable('colors', {
   id: integer('id').primaryKey({ autoIncrement: true }).notNull(),
   name: text('name').notNull(),
-  hexCode: text('hexCode').notNull(),
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lab
+  l: real('l').notNull(),
+  a: real('a').notNull(),
+  b: real('b').notNull(),
 })
 
 export type Color = typeof colors.$inferSelect
@@ -49,12 +52,14 @@ export const products = sqliteTable(
     quantityUnitType: text('quantityUnitType').notNull(),
     weightGrams: real('weightGrams'),
 
-    colorId: integer('colorId')
-      
-      .references(() => colors.id),
-    manufacturerId: integer('manufacturerId')
-      
-      .references(() => manufacturers.id),
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lab
+    color_l: real('color_l').notNull(),
+    color_a: real('color_a').notNull(),
+    color_b: real('color_b').notNull(),
+
+    manufacturerId: integer('manufacturerId').references(
+      () => manufacturers.id,
+    ),
     model: text('model'),
     content: text('content'),
     numFibers: integer('fiberQuantity'),
