@@ -6,6 +6,9 @@ binding = "DB"
 database_name = "shop"
 database_id = "b7f30515-5ef1-49cd-aca3-1f18e9d4f557"
 
+[ai]
+binding = "AI"
+
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
 # Note: Use secrets to store sensitive data.
 # Docs: https://developers.cloudflare.com/workers/platform/environment-variables
