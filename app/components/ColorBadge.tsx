@@ -18,7 +18,6 @@ export function ColorBadge({ color, name }: ColorBadgeProps) {
         border: `2px solid ${color}`,
         padding: 5,
         paddingLeft: 10,
-        // paddingRight: 10,
         borderRadius: 10,
         width: 'fit-content',
         textDecoration: 'none',
