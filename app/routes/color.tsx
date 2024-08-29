@@ -1,6 +1,7 @@
-import { ActionFunction, json } from '@remix-run/cloudflare'
+import { ActionFunction, json, TypedResponse } from '@remix-run/cloudflare'
 import { useActionData, Form } from '@remix-run/react'
-import { getNearest } from './atlas/nearestColor'
+import { ColorMatch, getNearest } from './atlas/nearestColor'
+import { ColorBadge } from '../components/ColorBadge'
 
 export const action: ActionFunction = async ({ context, request }) => {
   const formData = await request.formData()
@@ -13,20 +14,23 @@ export const action: ActionFunction = async ({ context, request }) => {
 }
 
 export default function NearestColorRoute() {
-  const data = useActionData<typeof action>()
+  const data = useActionData<ColorMatch>()
 
   return (
-    <div>
-      <Form method="post">
-        <label>
-          Nearest color:
-          <input type="text" name="prompt" />
-        </label>
+    <Form
+      method="post"
+      style={{ display: 'flex', flexDirection: 'column', gap: 10 }}
+    >
+      <div style={{ display: 'flex', gap: 5 }}>
+        <label htmlFor="prompt">Nearest color:</label>
+        <input type="text" name="prompt" />
 
         <button type="submit">Find</button>
+      </div>
 
-        <p>{JSON.stringify(data) || 'No response yet'}</p>
-      </Form>
-    </div>
+      {data && <ColorBadge color={data.value} name={data.name} />}
+
+      <code>{JSON.stringify(data) || 'No response yet'}</code>
+    </Form>
   )
 }

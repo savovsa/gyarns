@@ -34,7 +34,7 @@ export function ColorBadge({ color, name }: ColorBadgeProps) {
         }}
       />
 
-      <span style={{ color }}>{name}</span>
+      <span style={{ color: 'black' }}>{name}</span>
       <span style={{ opacity: 0.4 }}>{color}</span>
     </Link>
   )
