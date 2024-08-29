@@ -29,8 +29,6 @@ export default function NearestColorRoute() {
       </div>
 
       {data && <ColorBadge color={data.value} name={data.name} />}
-
-      <code>{JSON.stringify(data) || 'No response yet'}</code>
     </Form>
   )
 }
