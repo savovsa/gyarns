@@ -13,11 +13,13 @@ export function ColorBadge({ color, name }: ColorBadgeProps) {
         display: 'flex',
         gap: 5,
         alignItems: 'center',
+        fontFamily: 'sans-serif',
         justifyContent: 'center',
         backgroundColor: '#dddedc',
         border: `2px solid ${color}`,
         padding: 5,
-        paddingLeft: 10,
+        paddingLeft: 5,
+        // paddingRight: 10,
         borderRadius: 10,
         width: 'fit-content',
         textDecoration: 'none',
@@ -26,9 +28,9 @@ export function ColorBadge({ color, name }: ColorBadgeProps) {
       <div
         style={{
           backgroundColor: color,
-          width: 20,
-          height: 20,
-          borderRadius: 10,
+          width: 30,
+          height: 30,
+          borderRadius: 20,
           marginRight: 5,
         }}
       />
