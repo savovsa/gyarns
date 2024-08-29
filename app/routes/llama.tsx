@@ -1,25 +1,24 @@
 import { ActionFunction, json } from '@remix-run/cloudflare'
 import { useActionData, Form } from '@remix-run/react'
-import { useTransition } from 'react'
 
 export const action: ActionFunction = async ({ context, request }) => {
   const formData = await request.formData()
   const prompt = formData.get('prompt') as string
 
-  let instructions =
-    '\n Interpret the color as if you are a color expert that can translate colors from hex to text. Be terse, provide only the color name. \n'
-
-  const response = await context.ai.run('@cf/meta/llama-3.1-8b-instruct', {
-    prompt: prompt + instructions,
+  const output = await context.ai.run('@cf/meta/llama-3.1-8b-instruct', {
+    prompt: prompt,
     max_tokens: 30,
   })
 
-  return json(response)
+  if ('response' in output) {
+    return json(output.response)
+  }
+
+  return null
 }
 
 export default function LlamaRoute() {
-  const data = useActionData<typeof action>()
-  const transition = useTransition()
+  const data = useActionData<string>()
 
   return (
     <div>
@@ -31,7 +30,7 @@ export default function LlamaRoute() {
 
         <button type="submit">Ask</button>
 
-        <p>{data?.response || 'No response yet'}</p>
+        <p>{data || 'No response yet'}</p>
       </Form>
     </div>
   )
