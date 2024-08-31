@@ -1,7 +1,9 @@
 CREATE TABLE `colors` (
 	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
 	`name` text NOT NULL,
-	`hexCode` text NOT NULL
+	`l` real NOT NULL,
+	`a` real NOT NULL,
+	`b` real NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE `manufacturers` (
@@ -19,14 +21,15 @@ CREATE TABLE `products` (
 	`quantity` real NOT NULL,
 	`quantityUnitType` text NOT NULL,
 	`weightGrams` real,
-	`colorId` integer,
+	`color_l` real NOT NULL,
+	`color_a` real NOT NULL,
+	`color_b` real NOT NULL,
 	`manufacturerId` integer,
 	`model` text,
 	`content` text,
 	`fiberQuantity` integer,
 	`metersPer100gPer1Fiber` integer,
 	`metersPer100gPerAllFibers` integer,
-	FOREIGN KEY (`colorId`) REFERENCES `colors`(`id`) ON UPDATE no action ON DELETE no action,
 	FOREIGN KEY (`manufacturerId`) REFERENCES `manufacturers`(`id`) ON UPDATE no action ON DELETE no action
 );
 --> statement-breakpoint
