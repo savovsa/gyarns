@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "f725e26c-0353-42f7-b728-f31f5183eec4",
+  "id": "672ee859-df6e-4562-a0bf-066991bbceb0",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "colors": {
@@ -21,9 +21,23 @@
           "notNull": true,
           "autoincrement": false
         },
-        "hexCode": {
-          "name": "hexCode",
-          "type": "text",
+        "l": {
+          "name": "l",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "a": {
+          "name": "a",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "b": {
+          "name": "b",
+          "type": "real",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
@@ -124,11 +138,25 @@
           "notNull": false,
           "autoincrement": false
         },
-        "colorId": {
-          "name": "colorId",
-          "type": "integer",
+        "color_l": {
+          "name": "color_l",
+          "type": "real",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "color_a": {
+          "name": "color_a",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "color_b": {
+          "name": "color_b",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true,
           "autoincrement": false
         },
         "manufacturerId": {
@@ -191,19 +219,6 @@
         }
       },
       "foreignKeys": {
-        "products_colorId_colors_id_fk": {
-          "name": "products_colorId_colors_id_fk",
-          "tableFrom": "products",
-          "tableTo": "colors",
-          "columnsFrom": [
-            "colorId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
         "products_manufacturerId_manufacturers_id_fk": {
           "name": "products_manufacturerId_manufacturers_id_fk",
           "tableFrom": "products",

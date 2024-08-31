@@ -26,9 +26,9 @@
   },
   "dependencies": {
     "@keckelt/tsne": "^1.0.2",
-    "@remix-run/cloudflare": "^2.8.0",
-    "@remix-run/cloudflare-pages": "^2.8.0",
-    "@remix-run/react": "^2.8.0",
+    "@remix-run/cloudflare": "^2.11.2",
+    "@remix-run/cloudflare-pages": "^2.11.2",
+    "@remix-run/react": "^2.11.2",
     "chroma-js": "^2.4.2",
     "color-name-list": "^10.24.2",
     "drizzle-orm": "^0.33.0",
@@ -44,7 +44,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240222.0",
     "@playwright/test": "^1.46.1",
-    "@remix-run/dev": "^2.8.0",
+    "@remix-run/dev": "^2.11.2",
     "@types/chroma-js": "^2.4.4",
     "@types/nearest-color": "^0.4.1",
     "@types/node": "^22.4.1",
