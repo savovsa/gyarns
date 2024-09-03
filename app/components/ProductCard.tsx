@@ -1,6 +1,4 @@
 import { Link } from '@remix-run/react'
-import { AddToCartButton } from './AddToCartButton'
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card'
 
 export function ProductCard() {
   return (
