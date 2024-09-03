@@ -11,9 +11,7 @@ export function ProductCard() {
         <img
           alt="Yarn product image"
           className="w-full h-60 object-cover rounded-lg"
-          height="240"
           src="https://g-yarns.com/image/cache/catalog/Merino/50.50.1-600x500.jpg"
-          width="320"
         />
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
           100g / 3.5oz

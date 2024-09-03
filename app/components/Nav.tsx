@@ -1,5 +1,5 @@
 import { NavLink } from '@remix-run/react'
-import { Globe, Languages, Search, ShoppingBasket, User } from 'lucide-react'
+import { Euro, Languages, Search, ShoppingBasket, User } from 'lucide-react'
 
 export function Nav() {
   return (
@@ -13,8 +13,9 @@ export function Nav() {
       <div className="ml-auto flex gap-4 sm:gap-6">
         <Search />
         <User />
-        <ShoppingBasket />
         <Languages />
+        <Euro />
+        <ShoppingBasket />
       </div>
     </div>
   )
