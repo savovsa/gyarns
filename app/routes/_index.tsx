@@ -1,7 +1,4 @@
 import { type MetaFunction } from '@remix-run/cloudflare'
-import { Link } from '@remix-run/react'
-import { Shirt } from 'lucide-react'
-import { Nav } from '~/components/Nav'
 import { ProductCard } from '~/components/ProductCard'
 import { Section } from '~/components/Section'
 
