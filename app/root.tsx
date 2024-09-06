@@ -1,21 +1,29 @@
 import { LinksFunction } from '@remix-run/cloudflare'
 import {
+  isRouteErrorResponse,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  useRouteError,
 } from '@remix-run/react'
 
 import tailwind from '../app/tailwind.css?url'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
+import { useIsAdminRoute } from './lib/useIsAdminRoute'
+import { AdminLayout } from './components/AdminLayout'
+import { ErrorNotFound } from './components/ErrorNotFound'
+import { ErrorGeneric } from './components/ErrorGeneric'
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: tailwind },
 ]
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const isAdminRoute = useIsAdminRoute()
+
   return (
     <html lang="en">
       <head>
@@ -25,8 +33,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <Header />
-        {children}
+        {!isAdminRoute && <Header />}
+        {isAdminRoute ? <AdminLayout>{children}</AdminLayout> : children}
         <ScrollRestoration />
         <Scripts />
         <Footer />
@@ -37,4 +45,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return <Outlet />
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError()
+
+  if (isRouteErrorResponse(error)) {
+    if (error.status === 404) {
+      return <ErrorNotFound />
+    }
+  }
+
+  return <ErrorGeneric />
 }
