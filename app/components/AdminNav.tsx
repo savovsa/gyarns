@@ -1,27 +1,37 @@
+import { cva, VariantProps } from 'class-variance-authority'
 import { ShoppingCart, Package, Users, LineChart } from 'lucide-react'
 import { AdminNavLink } from '~/components/AdminNavLink'
-import { Badge } from '~/components/ui/badge'
 
-export function AdminNav() {
+const navVariants = cva('grid gap-2 font-medium', {
+  variants: {
+    variant: {
+      mobile: 'text-lg',
+      desktop: 'items-start px-2 text-sm lg:px-4',
+    },
+  },
+})
+
+type NavProps = VariantProps<typeof navVariants>
+
+export function AdminNav({ variant }: NavProps) {
+  let iconClassName = variant === 'desktop' ? 'h-4 w-4' : 'h-6 w-6'
+
   return (
-    <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+    <nav className={navVariants({ variant })}>
       <AdminNavLink to="/a/orders">
-        <ShoppingCart className="h-4 w-4" />
+        <ShoppingCart className={iconClassName} />
         Orders
-        <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-          6
-        </Badge>
       </AdminNavLink>
       <AdminNavLink to="/a/products">
-        <Package className="h-4 w-4" />
+        <Package className={iconClassName} />
         Products
       </AdminNavLink>
       <AdminNavLink to="/a/customers">
-        <Users className="h-4 w-4" />
+        <Users className={iconClassName} />
         Customers
       </AdminNavLink>
       <AdminNavLink to="/a/analytics">
-        <LineChart className="h-4 w-4" />
+        <LineChart className={iconClassName} />
         Analytics
       </AdminNavLink>
     </nav>

@@ -7,7 +7,7 @@ export function ErrorNotFound() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
       <h1 className="text-6xl font-bold mb-4">404</h1>
       <p className="text-muted-foreground mb-8 text-center max-w-md">
-        Oops! We couldn't find the page you are looking for.
+        We couldn't find that page.
       </p>
       <Button asChild>
         <Link to="/" className="flex items-center">
