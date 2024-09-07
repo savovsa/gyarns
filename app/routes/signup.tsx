@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import { Form, Link, useActionData, useNavigation } from '@remix-run/react'
 import { ActionFunctionArgs, json } from '@remix-run/cloudflare'
 

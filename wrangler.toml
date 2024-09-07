@@ -1,5 +1,6 @@
 name = "remix-d1"
 compatibility_date = "2024-03-04"
+compatibility_flags = ["experimental:nodejs_compat_v2"]
 
 [[d1_databases]]
 binding = "DB"
