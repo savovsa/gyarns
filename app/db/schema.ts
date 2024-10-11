@@ -43,6 +43,7 @@ export const products = sqliteTable(
     slug: text('slug').primaryKey().notNull(),
     name: text('name').notNull(),
     price: real('price').notNull(),
+    image: text('image').notNull().default(''),
     currency: text('currency').notNull(),
     createdAt: integer('createdAt')
       .notNull()

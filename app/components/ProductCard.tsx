@@ -1,6 +1,12 @@
 import { Link } from '@remix-run/react'
 
-export function ProductCard() {
+type ProductCardProps = {
+  title: string
+  image: string
+  price: number
+}
+
+export function ProductCard({ image, title, price }: ProductCardProps) {
   return (
     <Link
       to="#"
@@ -9,11 +15,11 @@ export function ProductCard() {
       <img
         alt="Yarn product image"
         className="w-full h-60 object-cover rounded-lg"
-        src="https://g-yarns.com/image/cache/catalog/Merino/50.50.1-600x500.jpg"
+        src={image}
       />
       <div className="flex flex-col gap-0.5">
-        <span>Merino wool blend</span>
-        <span className="text-sm font-bold">$12.99</span>
+        <span>{title}</span>
+        <span className="text-sm font-bold">${price}</span>
       </div>
     </Link>
   )
