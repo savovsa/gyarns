@@ -1,6 +1,8 @@
 import { json, type LoaderFunctionArgs } from '@remix-run/cloudflare'
 import { useLoaderData } from '@remix-run/react'
-import { ColorBadge } from '../components/ColorBadge'
+
+import { ColorBadge } from '~/components/ColorBadge'
+import { ErrorNotFound } from '~/components/ErrorNotFound'
 
 export async function loader({ context, params }: LoaderFunctionArgs) {
   if (!params.slug) {
@@ -15,7 +17,7 @@ export default function Products() {
   const data = useLoaderData<typeof loader>()
 
   if (!data) {
-    return <h1>Not found</h1>
+    return <ErrorNotFound />
   }
 
   return (

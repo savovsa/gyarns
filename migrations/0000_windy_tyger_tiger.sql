@@ -16,6 +16,7 @@ CREATE TABLE `products` (
 	`slug` text PRIMARY KEY NOT NULL,
 	`name` text NOT NULL,
 	`price` real NOT NULL,
+	`image` text DEFAULT '' NOT NULL,
 	`currency` text NOT NULL,
 	`createdAt` integer DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	`quantity` real NOT NULL,
